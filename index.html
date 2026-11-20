@@ -758,10 +758,8 @@
         }
 
         const transcriptLines = meetingLogs.map(m =>
-          `[${m.time}] ต้นฉบับ: ${m.original}
-    ↳ แปล (${m.ch1Lang}): ${m.trans1} | (${m.ch2Lang}): ${m.trans2}`
-        ).join('
-');
+          `[${m.time}] ต้นฉบับ: ${m.original}\n    ↳ แปล (${m.ch1Lang}): ${m.trans1} | (${m.ch2Lang}): ${m.trans2}`
+        ).join('\n');
 
         if (outLang === 'th') {
           summaryOutput.value =
@@ -769,12 +767,10 @@
 วันที่: ${dateStr} | จำนวนประโยคที่บันทึก: ${meetingLogs.length} รายการ
 
 ## 1. ประเด็นสำคัญที่หารือ (Key Highlights)
-${highlights.join('
-')}
+${highlights.join('\n')}
 
 ## 2. รายการสิ่งที่ต้องดำเนินการต่อ (Action Items)
-${actionItems.length > 0 ? actionItems.join('
-') : '- ไม่มีรายการที่ระบุกำหนดการ/การมอบหมายชัดเจนในบันทึก'}
+${actionItems.length > 0 ? actionItems.join('\n') : '- ไม่มีรายการที่ระบุกำหนดการ/การมอบหมายชัดเจนในบันทึก'}
 
 ## 3. บันทึกถอดความและคำแปลทั้งหมด (Full Transcript)
 ${transcriptLines}`;
@@ -784,12 +780,10 @@ ${transcriptLines}`;
 Date: ${dateStr} | Recorded Utterances: ${meetingLogs.length}
 
 ## 1. Key Highlights
-${highlights.join('
-')}
+${highlights.join('\n')}
 
 ## 2. Action Items
-${actionItems.length > 0 ? actionItems.join('
-') : '- No explicit action items detected.'}
+${actionItems.length > 0 ? actionItems.join('\n') : '- No explicit action items detected.'}
 
 ## 3. Full Transcript & Translations
 ${transcriptLines}`;
